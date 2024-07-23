@@ -5,13 +5,13 @@
 #args<-commandArgs("trailingOnly=TRUE")
 
 samples<-3000000
-dem<-0.49 
-rep<-0.39
+dem<-0.42 
+rep<-0.38
 route270<-data.frame(State=as.character(0), EVs=as.integer(0), Chance=as.double(0), stringsAsFactors=FALSE)
 theScore<-data.frame(EVs=as.integer(0))
 
-dem16<-0.48
-rep16<-0.46
+dem16<-0.51
+rep16<-0.47
 
 total2p<-(dem+rep)
 corDem<-(dem/total2p)
@@ -45,7 +45,7 @@ for (i in 1:nrow(us2016))
   if (z > 0) {
     route270<-rbind(route270, c(as.character(us2016[i,]$State), as.integer(us2016[i,]$EVs), as.double(z/samples)))
   }
-  cat(as.character(us2016[i,]$State),": Biden has ", z/(samples/100), "% chance of winning\n")
+  cat(as.character(us2016[i,]$State),": Harris has ", z/(samples/100), "% chance of winning\n")
 }
 route270<-route270[-1,]
 theScore<-theScore[-1,]
